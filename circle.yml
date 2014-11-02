@@ -4,7 +4,7 @@ machine:
 
 test:
   override:
-    - ./node_modules/istanbul/lib/cli.js cover --dir $CIRCLE_ARTIFACTS/coverage ./node_modules/mocha/bin/mocha
+    - ./node_modules/istanbul/lib/cli.js cover --dir $CIRCLE_ARTIFACTS/coverage ./node_modules/mocha/bin/_mocha
 
   post:
     - npm install -g codeclimate-test-reporter

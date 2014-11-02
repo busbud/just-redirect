@@ -4,7 +4,7 @@
   "description": "A redirection service for remapping URLs",
   "main": "app.js",
   "scripts": {
-    "test": "./node_modules/mocha/bin/mocha",
+    "test": "./node_modules/istanbul/lib/cli.js cover --dir ./coverage ./node_modules/mocha/bin/_mocha",
     "start": "node index.js"
   },
   "author": "devs@busbud.com",
