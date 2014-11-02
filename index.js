@@ -19,8 +19,10 @@ var server = http.createServer(function (req, res) {
   var target = redirects[key];
 
   if (target) {
+    var target_uri = new URIjs(target).query(uri.query());
+
     res.writeHead(301, {
-      'Location': target,
+      'Location': target_uri.href(),
       'Cache-Control': 'max-age=' + TWO_YEARS_IN_SECONDS
     });
     res.end('');

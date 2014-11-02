@@ -18,6 +18,18 @@ describe('Redirects', function() {
       .get('/about/')
       .end(function (err, res) {
         assert.equal(res.headers.location, 'https://www.busbud.com/blog');
+        assert.match(res.headers['cache-control'], /max-age=\d+/);
+        assert.equal(res.statusCode, 301);
+        done(err);
+      });
+  });
+
+  it('when a target exists, 301 redirects to the target, preserving the querystring', function(done) {
+    request
+      .get('/about/?utm=important&a=b')
+      .end(function (err, res) {
+        assert.equal(res.headers.location, 'https://www.busbud.com/blog?utm=important&a=b');
+        assert.match(res.headers['cache-control'], /max-age=\d+/);
         assert.equal(res.statusCode, 301);
         done(err);
       });
