@@ -1,0 +1,24 @@
+{
+  "name": "just-redirect",
+  "version": "1.0.0",
+  "description": "A redirection service for remapping URLs",
+  "main": "app.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "start": "node index.js"
+  },
+  "author": "devs@busbud.com",
+  "license": "MIT",
+  "engines": {
+    "node": "0.10.33"
+  },
+  "dependencies": {
+    "URIjs": "^1.14.1"
+  },
+  "devDependencies": {
+    "chai": "^1.9.2",
+    "istanbul": "^0.3.2",
+    "mocha": "^2.0.1",
+    "supertest": "^0.14.0"
+  }
+}

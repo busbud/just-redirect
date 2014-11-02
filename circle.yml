@@ -1,0 +1,11 @@
+machine:
+  environment:
+    NODE_ENV: test
+
+test:
+  override:
+    - ./node_modules/istanbul/lib/cli.js cover --dir $CIRCLE_ARTIFACTS/coverage ./node_modules/mocha/bin/mocha
+
+  post:
+    - npm install -g codeclimate-test-reporter
+    - codeclimate < $CIRCLE_ARTIFACTS/coverage/lcov.info
