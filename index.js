@@ -32,9 +32,9 @@ var server = http.createServer(function (req, res) {
     res.end('');
   }
 
-}).listen(PORT, '127.0.0.1');
+}).listen(PORT);
 
-console.log('Server running at http://127.0.0.1:' + PORT);
+console.log('Server running at http://localhost:' + PORT);
 
 
 module.exports = server;
