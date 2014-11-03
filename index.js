@@ -15,7 +15,9 @@ var PORT = process.env.PORT || 3000;
 
 var server = http.createServer(function (req, res) {
   var uri = new URIjs(req.url);
-  var key = uri.path().toLowerCase();
+  var path = uri.path();
+  // Add implicit trailing slash
+  var key = (path.lastIndexOf('/') === (path.length - 1) ? path : path + '/').toLowerCase();
   var target = redirects[key];
 
   if (target) {
