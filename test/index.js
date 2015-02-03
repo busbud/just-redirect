@@ -48,11 +48,12 @@ describe('Redirects', function() {
     });
   });
 
-  it('when a target does not exist, 404s', function(done) {
+  it('when a target does not exist, 302 to blog homepage', function(done) {
     request
       .get('/noexisto/')
       .end(function (err, res) {
-        assert.equal(res.statusCode, 404);
+        assert.equal(res.statusCode, 302);
+        assert.equal(res.headers.location, 'https://www.busbud.com/blog');
         done(err);
       });
   });
