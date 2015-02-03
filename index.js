@@ -30,7 +30,9 @@ var server = http.createServer(function (req, res) {
     res.end('');
   }
   else {
-    res.writeHead(404, {});
+    res.writeHead(302, {
+      'Location': 'https://www.busbud.com/blog'
+    });
     res.end('');
   }
 
